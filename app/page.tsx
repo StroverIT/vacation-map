@@ -1,12 +1,13 @@
 import ListLabels from "@/components/ListLabels";
 import { promises as fs } from "fs";
-import Image from "next/image";
+// import { formatTrelloData } from "@/utils/formatDocument";
 
 export default async function Home() {
   const file = await fs.readFile(process.cwd() + "/data/places.json", "utf8");
   const { lists, cards } = JSON.parse(file);
 
-  console.log(cards);
+  // formatTrelloData({ lists, cards });
+
   const findListCardsById = (id: string) => {
     return cards.filter((card) => card.idList === id);
   };
